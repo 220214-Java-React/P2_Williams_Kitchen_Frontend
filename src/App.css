@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+.header{
+    border: rgb(56, 127, 67);
+    padding-top:30px;
+    border-radius:1px;
+    background-color: wheat;
+    display:flex;
+    height: 5px;
+    width: flex;
+}
+.classcenter{
+    text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container{
+    text-align: center;
+justify-content: center;
+display:flex;
+background-color: rgb(226, 232, 232);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.registerForm{
+text-align: center;
+justify-content: center;
+display:flex;
+height: 550px;
+width: 35%;
+box-shadow: 11px 12px 13px 12px rgb(207,207,207);
+padding-top:30px;
+border-radius:60px;
+background-color: wheat;
+}
+.input{
+    text-align: center;
+    justify-content: center;
+    border: 11px 12px 13px 12px rgb(13, 7, 97);
+    display: inline;
+}
+.btnsubmit{
+    height: 50px;
+    width: 35%;
+    box-shadow: 11px 12px 13px 12px rgb(13, 7, 97);
+    padding: top 1px;
+    background-color: blue;
+    border: rgb(7, 97, 65);
+    border-radius:10px;
+    
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+.footer{
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    border: rgb(56, 127, 67);
+    padding-top:30px;
+    border-radius:10px;
+    background-color: wheat;
+    display:flex;
+    height: 5px;
+    width: flex;
 }

@@ -1,11 +1,11 @@
 import './App.css';
-import Searchbar from './features/searchbar/Searchbar';
+import SearchForm from './features/searchform/SearchForm';
 
 function App() {
   return (
     <div className="App">
-      <h1>Williams Kitchen</h1>
-      <Searchbar />
+      <h1>William's Kitchen</h1>
+      <SearchForm />
     </div>
   );
 }

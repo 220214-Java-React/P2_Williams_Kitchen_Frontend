@@ -1,58 +1,102 @@
-.header{
-    border: rgb(56, 127, 67);
+.navregister{
     padding-top:30px;
     border-radius:1px;
     background-color: wheat;
     display:flex;
-    height: 5px;
+    height: flex;
+    width: auto;
+    border-radius: 5px;
+    list-style-type: none;
+    margin-right: 10px;   
+}
+.homeheader{
+   
+    padding-top:30px;
+    border-radius:1px;
+    background-color: wheat;
+    display:flex;
+    justify-content:center;
+    margin-right: auto;
+    height: auto;
     width: flex;
+    border-radius: 5px;
+    list-style-type: none;
+    font-size: large;
 }
-.classcenter{
-    text-align: center;
+.home{
+    border:solid;
+    border-color: wheat;
+    padding-top:0px;
+    border-radius:1px;
+    background-color: wheat;
+    display:flex;
+    justify-content: left;
+    margin-right: auto;
+    margin-top: auto;
+    height: auto;
+    width: flex;
+    border-radius: 5px;
+    list-style-type: none;
 }
-
+.navhome{
+    border:solid;
+    border-radius:1px;
+    background-color: wheat;
+    display:flex;
+    justify-content: right;
+    margin-right: 2px;
+    height: 70px;
+    width: auto;
+    margin-top: 0;
+    border-radius: 5px;
+    list-style-type: none; 
+    border-color: wheat;     
+}
+.navhomeReg{
+    border:solid;
+    border-radius:1px;
+    background-color: wheat;  display:flex;
+    justify-content: right;
+    margin-right: 2px;
+    height: 5px;
+    width: auto;
+    margin-top: auto;
+    margin-bottom: 24px;
+    border-radius: 5px;
+    list-style-type: none; 
+    border-color: wheat; 
+}
+.body{
+}
 .container{
-    text-align: center;
-justify-content: center;
-display:flex;
-background-color: rgb(226, 232, 232);
-}
-
-.registerForm{
+height:auto;
 text-align: center;
 justify-content: center;
+flex-direction: row;
 display:flex;
-height: 550px;
-width: 35%;
-box-shadow: 11px 12px 13px 12px rgb(207,207,207);
-padding-top:30px;
-border-radius:60px;
-background-color: wheat;
+background-color: rgb(226, 232, 232);
+margin-right: 10px;
+}
+.registerForm{
 }
 .input{
     text-align: center;
     justify-content: center;
-    border: 11px 12px 13px 12px rgb(13, 7, 97);
-    display: inline;
+    display:grid;
+    justify-content: center;
+    flex-direction:column;
+    margin-top: 5px;
 }
-.btnsubmit{
-    height: 50px;
-    width: 35%;
-    box-shadow: 11px 12px 13px 12px rgb(13, 7, 97);
-    padding: top 1px;
-    background-color: blue;
-    border: rgb(7, 97, 65);
-    border-radius:10px;
-    
+.btnsubmit{ 
+       
 }
-
 .footer{
 
-    border: rgb(56, 127, 67);
-    padding-top:30px;
-    border-radius:10px;
-    background-color: wheat;
+    border: 20px solid wheat;
+    border-radius:5px;
     display:flex;
-    height: 5px;
-    width: flex;
+    margin-top: 0;
+    height: auto;
+    width: auto;
+    margin-right: 10px;
 }

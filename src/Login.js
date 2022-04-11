@@ -1,8 +1,9 @@
 import { useRef, useState, useEffect, useContext } from 'react';
-import AuthContext from "AuthProvider";
+import AuthContext from "./AuthProvider";
+import axios from 'axios';
 
-import axios from '"http://localhost:8080';  // local server host
-const LOGIN_URL = '/login'; // servlet to call from
+ // local server host
+const LOGIN_URL = 'http://localhost:8080/login'; // servlet to call from
 
 const Login = () => { // Login in function and form
     const { setAuth } = useContext(AuthContext); // check to see if its an Authetic account
@@ -68,7 +69,7 @@ const Login = () => { // Login in function and form
                 </section>
             ) : (
                 <section>
-                    <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p> // displaces the error message
+                    <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p> 
                     <h1>Sign In</h1>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="username">Username:</label>
@@ -80,7 +81,7 @@ const Login = () => { // Login in function and form
                             onChange={(e) => setUser(e.target.value)}
                             value={user}
                             required
-                        />  // userName input 
+                        />  
 
                         <label htmlFor="password">Password:</label>
                         <input
@@ -89,14 +90,14 @@ const Login = () => { // Login in function and form
                             onChange={(e) => setPwd(e.target.value)}
                             value={pwd}
                             required
-                        /> //password input
-                        <button>Sign In</button> // the sign in button
+                        /> 
+                        <button>Sign In</button> 
                     </form>
                     <p>
                         Need an Account?<br />
                         <span className="line">
-                            {/*put router link here*/}  // if no account has been created send them to this page
-                            <a href="#">Sign Up</a> // will add once I know the page
+                            {/*put router link here*/}  
+                            <a href="#">Sign Up</a> 
                         </span>
                     </p>
                 </section>

@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => { // check to see if its actual us
 
     return (
         <AuthContext.Provider value={{ auth, setAuth }}>
-            {children} // next compants for the authProvider
+            {children} 
         </AuthContext.Provider>
     )
 }

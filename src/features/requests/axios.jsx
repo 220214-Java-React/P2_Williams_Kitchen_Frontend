@@ -1,5 +1,5 @@
 import axios from "axios";
-import SearchBar from "../searchbar/Searchbar";
+import {SearchBar} from "../searchbar/Searchbar";
 
 
 const API_KEY = `9973533`;

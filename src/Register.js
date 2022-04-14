@@ -1,3 +1,4 @@
+import axios from "axios"
 import React, { Component } from 'react'
 class Register extends Component {
 
@@ -25,10 +26,16 @@ changeUserNameHandler=(event)=>{ this.setState ({UserName: event.target.value});
 changePasswordHandler=(event)=>{ this.setState ({Password: event.target.value});   }
 
 saveUserinfo=(e)=>{ e.preventDefault();
-    let user={firstName: this.state.firstName,
-    lastName: this.state.lastName,Email:this.state.Email,
-    UserName: this.state.UserName,Password:this.state.Password};
+    let user={
+        username: this.state.UserName,
+        password:this.state.Password,
+        email:this.state.Email,
+        firstname: this.state.firstName,
+        lastname: this.state.lastName
+    };
+    
     console.log('user=>'+JSON.stringify(user));
+    axios.post("http://localhost:8080/users/create", user).then(response => console.log(response.JSON))
     // console.log(user); this if I want to see how it would be looking in Object form or container / just for my ref
   }
   // to clear input 

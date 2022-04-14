@@ -1,23 +1,16 @@
+import { Outlet } from 'react-router-dom';
 import './App.css';
-import Register from './Register';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
-import landingPage from './landingPage';
-import Login from './Login';
+import LandingPage from './LandingPage';
+
 function App() {
   
   return (
-    <BrowserRouter basename='/landingPage'>
-      <div className='App'><landingPage /></div>
+    
+    <LandingPage />
+    
       
-      <switch>
-        <Route path="/" component={landingPage} exact />
-        <Route path="/Login" component={Login} />
-        <Route path="/Register" component={Register} />
 
-      </switch>
-
-    </BrowserRouter>
+    
   );
 }
 

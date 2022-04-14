@@ -3,7 +3,7 @@ import AuthContext from "./AuthProvider";
 import axios from 'axios';
 
  // local server host
-const LOGIN_URL = 'http://localhost:8080/login'; // servlet to call from
+const LOGIN_URL = 'http://localhost:8080/users'; // servlet to call from
 
 const Login = () => { // Login in function and form
     const { setAuth } = useContext(AuthContext); // check to see if its an Authetic account

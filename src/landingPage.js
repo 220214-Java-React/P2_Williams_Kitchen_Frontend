@@ -5,24 +5,27 @@ const LandingPage=()=>{
 
     return ( 
         <>
-        <div className="navhome">
+        <header className="navhome">
         
-        <ul className="home"><li> 
-            < Link to="/">Home</Link></li>
-            </ul>
-        
-        <ul className="navhomeReg">
-           <li><Link to="/login">Login</Link></li>
-           <>/</>
-           <li><Link to ="/Register">Register</Link>
-           </li>
-        </ul>
-        </div>
+            <nav>
+                <a><Link to="/">Home</Link></a>
+            </nav>
+            
+            <nav>
+                <a><Link to="/login">Login</Link></a>
+                <span>/</span>
+                <a><Link to ="/Register">Register</Link></a>
+            </nav>
+
+        </header>
+
         <article>
             <SearchBar/>
         </article>
         
-        <div className='footer'></div>
+        <div className='footer'>
+            <p>created by: Brett, William, Boualem, Chas, Nakisha</p>
+        </div>
         </>
     )
 }

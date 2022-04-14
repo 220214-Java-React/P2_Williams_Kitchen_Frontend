@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import SearchBar from './Searchbar'
 const LandingPage=()=>{
 
     return ( 
         <>
-        <div className="navhome"> <h1></h1>
+        <div className="navhome">
         
         <ul className="home"><li> 
             < Link to="/">Home</Link></li>
@@ -17,35 +18,10 @@ const LandingPage=()=>{
            </li>
         </ul>
         </div>
-     
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
+        <article>
+            <SearchBar/>
+        </article>
+        
         <div className='footer'></div>
         </>
     )

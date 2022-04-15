@@ -1,6 +1,9 @@
 import { useRef, useState, useEffect, useContext } from 'react';
-import AuthContext from "./AuthProvider";
+import AuthContext from "../AuthProvider";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Header from './header';
+import Footer from './footer';
 
  // local server host
 const LOGIN_URL = 'http://localhost:8080/users'; // servlet to call from
@@ -10,10 +13,12 @@ const Login = () => { // Login in function and form
     const userRef = useRef(); //checks for users referencs 
     const errRef = useRef(); // sends error message based on errors
 
-    const [user, setUser] = useState(''); // user set in a userState to track State in the Function
-    const [pwd, setPwd] = useState(''); // password of the user in a user state to track during the login
+    const [user, setUser] = useState({})
+    const [username, setUsername] = useState(''); // user set in a userState to track State in the Function
+    const [password, setPwd] = useState(''); // password of the user in a user state to track during the login
     const [errMsg, setErrMsg] = useState(''); // Custom error message based on log in error, FAILED, unaurthrized, server error.
     const [success, setSuccess] = useState(false); //  Succesful login
+    const [response, setResponse] = useState("")
 
     useEffect(() => {
         userRef.current.focus(); //sets focus on the frist input when the compant loads
@@ -21,28 +26,22 @@ const Login = () => { // Login in function and form
 
     useEffect(() => {
         setErrMsg(''); // empty our any error message that might have formed.
-    }, [user, pwd])
+    }, [username, password])
 
     const handleSubmit = async (e) => { 
         e.preventDefault();  // reloads the page
 
         //connect to the backend with axios and stringifys the inputs
         try {
-            const response = await axios.post(LOGIN_URL, 
-                JSON.stringify({ user, pwd }),
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true
-                }
-            );
-            console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response));
+            setResponse( await axios.post(LOGIN_URL + "/"+ username, JSON.stringify({ username, password })).then(response => response.data))
+
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
-            setAuth({ user, pwd, roles, accessToken });
-            setUser('');
+            setAuth({ username, password, roles, accessToken });
+            setUsername('');
             setPwd('');
             setSuccess(true);
+            
         } catch (err) {
             if (!err?.response) {
                 setErrMsg('No Server Response');
@@ -55,16 +54,22 @@ const Login = () => { // Login in function and form
             }
             errRef.current.focus();
         }
+        
     }
+
+    console.log(`the current user is ${response.data}`)
 
     return (
         <>
+            
+            <Header/>
+
             {success ? (
                 <section>
                     <h1>You are logged in!</h1> // Indicator that you have successfully logged in
                     <br />
                     <p>
-                        <a href="#">Go to Home</a>
+                        <a><Link to="/">Go to Home</Link></a>
                     </p>
                 </section>
             ) : (
@@ -78,8 +83,8 @@ const Login = () => { // Login in function and form
                             id="username"
                             ref={userRef}
                             autoComplete="off"
-                            onChange={(e) => setUser(e.target.value)}
-                            value={user}
+                            onChange={(e) => setUsername(e.target.value)}
+                            value={username}
                             required
                         />  
 
@@ -88,7 +93,7 @@ const Login = () => { // Login in function and form
                             type="password"
                             id="password"
                             onChange={(e) => setPwd(e.target.value)}
-                            value={pwd}
+                            value={password}
                             required
                         /> 
                         <button>Sign In</button> 
@@ -97,11 +102,13 @@ const Login = () => { // Login in function and form
                         Need an Account?<br />
                         <span className="line">
                             {/*put router link here*/}  
-                            <a href="#">Sign Up</a> 
+                            <a><Link to="/Register">Sign Up</Link></a> 
                         </span>
                     </p>
                 </section>
             )}
+
+            <Footer />
         </>
     )
 }

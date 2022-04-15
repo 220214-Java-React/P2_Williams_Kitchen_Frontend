@@ -1,5 +1,7 @@
 import React, { Component, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Footer from './footer'
+import Header from './header'
 
 
 export default function SubmitRecipe() {
@@ -24,20 +26,7 @@ export default function SubmitRecipe() {
 
     return (
         <>
-            <header>
-            <nav className="navhome">
-                    <ul id="homenav">
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/SubmitRecipe">Submit Recipe</Link></li>
-                    </ul>
-
-                    <ul id="navhomeReg">
-                        <li><Link to="/login">Login</Link></li>
-                        <span>/</span>
-                        <li><Link to ="/Register">Register</Link></li>
-                    </ul>
-                </nav>
-            </header>
+            <Header />
 
             <article id="submitRecipeFormDiv">
                 <form id="recipeForm">
@@ -98,9 +87,7 @@ export default function SubmitRecipe() {
                 </form>
             </article>
 
-            <footer>
-                <p id='footnote'>created by Boualem, William, Chas, Brett, and Nakisha</p>
-            </footer>
+            <Footer />
         </>
     )
 }

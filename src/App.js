@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import './App.css';
-import LandingPage from './LandingPage';
+import LandingPage from './Components/LandingPage';
 
 function App() {
   

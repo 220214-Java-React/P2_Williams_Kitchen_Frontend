@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import SearchBar from './Searchbar'
-const LandingPage=()=>{
 
-    return ( 
-        <>
+
+
+export default function Header() {
+    return (
         <header className="navhome">
         
             <nav>
@@ -19,15 +18,5 @@ const LandingPage=()=>{
             </nav>
 
         </header>
-
-        <article>
-            <SearchBar/>
-        </article>
-        
-        <div className='footer'>
-            <p>created by: Brett, William, Boualem, Chas, Nakisha</p>
-        </div>
-        </>
     )
 }
-export default LandingPage

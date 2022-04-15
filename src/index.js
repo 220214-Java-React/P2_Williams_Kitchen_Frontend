@@ -5,11 +5,11 @@ import App from './App';
 import{AuthProvider} from './AuthProvider';
 import { BrowserRouter } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Routes, Switch } from 'react-router-dom';
-// import { BrowserRouter } from 'react-router-dom';
-import LandingPage from './LandingPage';
-import Login from './Login';
-import Register from './Register';
-import SubmitRecipe from './SubmitRecipe';
+
+import LandingPage from './Components/LandingPage';
+import Login from './Components/Login';
+import Register from './Components/Register';
+import SubmitRecipe from './Components/SubmitRecipe';
 
 
 ReactDOM.render(

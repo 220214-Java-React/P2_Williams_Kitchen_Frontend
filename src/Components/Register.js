@@ -1,5 +1,7 @@
 import axios from "axios"
 import React, { Component } from 'react'
+import Footer from "./footer";
+import Header from "./header";
 class Register extends Component {
 
     constructor (props){
@@ -48,9 +50,9 @@ cancel=(e)=>{
 render(){
     return(
   <>
-  
-    <div className='navregister'><ul className='home'>< a href="/">Home</a></ul></div>
-     <div className='container'> 
+    <Header/>
+    
+    <article className='container'> 
          <div className='registerForm'>
             <div className="row">
                 <h1 className='text-center'> Registration </h1>
@@ -90,8 +92,9 @@ render(){
                       </form>
              </div>    
         </div>
-     </div>
-     <div className='footer'> </div>
+     </article>
+
+     <Footer/>
      </>
     )
    }

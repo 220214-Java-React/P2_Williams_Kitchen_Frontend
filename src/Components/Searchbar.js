@@ -100,11 +100,11 @@ const SearchBar = () => {
    return (
 
       <>
-         <div className="searchBody">
+         <article className="searchBody">
             <div className="main">
 
                <form onSubmit={handleSubmit}>
-                  <label htmlFor="search input">What's for eating 😋 </label>
+                  <label htmlFor="search input">What's for eating 😋</label>
                   <input type="text" placeholder="Enter a food item" name={searchInput} value={searchInput} onChange={handleInput} autoFocus />
                   <Select value={selectedOption} onChange={setSelectedOption} options={mealSugg} isMulti></Select>
                   <input type="submit" value="Submit" />
@@ -124,9 +124,8 @@ const SearchBar = () => {
                      </tbody>
                   </table>
                </div>
-
             </div>
-         </div>
+         </article>
       </>
    )
 }

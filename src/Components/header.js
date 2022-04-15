@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 
 
-export default function Header() {
+export default function HeaderGuest() {
     return (
         <header className="navhome">
         

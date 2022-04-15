@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Header from './header';
 import Footer from './footer';
 
+
  // local server host
 const LOGIN_URL = 'http://localhost:8080/users'; // servlet to call from
 
@@ -57,7 +58,7 @@ const Login = () => { // Login in function and form
         
     }
 
-    console.log(`the current user is ${response.data}`)
+    
 
     return (
         <>
@@ -66,10 +67,11 @@ const Login = () => { // Login in function and form
 
             {success ? (
                 <section>
+                    {console.log(`the current user is ${response.username}`)}
                     <h1>You are logged in!</h1> // Indicator that you have successfully logged in
                     <br />
                     <p>
-                        <a><Link to="/">Go to Home</Link></a>
+                        <a><Link to="/" state={response}>Go to Home</Link></a>
                     </p>
                 </section>
             ) : (

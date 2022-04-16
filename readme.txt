@@ -11,6 +11,11 @@ For Users With Accounts
 -See that favorites list and find your favorite recipes
 -do you have a recipe you want to share? go ahead and submit it we will add it to the list and to your favorite list
 
+API's Used:
+--Williams Kitchen Backend
+--The Meal DB
+----https://www.themealdb.com/api.php
+
 tech stack
 -Backend
 --Java

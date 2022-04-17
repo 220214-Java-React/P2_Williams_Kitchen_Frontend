@@ -10,7 +10,6 @@
   margin-right: 10px;   
 }
 .homeheader{
- 
   padding-top:30px;
   border-radius:1px;
   background-color: wheat;
@@ -69,13 +68,13 @@
 .body{
 }
 .container{
-height:auto;
-text-align: center;
-justify-content: center;
-flex-direction: row;
-display:flex;
-background-color: rgb(226, 232, 232);
-margin-right: 10px;
+  height:auto;
+  text-align: center;
+  display:flex;
+  justify-content: center;
+  flex-direction: row;
+  background-color: rgb(226, 232, 232);
+  margin-right: 10px;
 }
 .registerForm{
 }
@@ -91,12 +90,9 @@ margin-right: 10px;
      
 }
 .footer{
-
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   border: 20px solid wheat;
   border-radius:5px;
-  display:flex;
-  margin-top: 0;
-  height: auto;
-  width: auto;
-  margin-right: 10px;
 }

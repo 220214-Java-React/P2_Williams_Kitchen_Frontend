@@ -53,44 +53,40 @@ render(){
     <Header/>
     
     <article className='container'> 
-         <div className='registerForm'>
+        <div className='registerForm'>
             <div className="row">
                 <h1 className='text-center'> Registration </h1>
-                <br></br>
-                        <form className='register'>
-                            <div className="input">
-                            <label>First Name :</label>
-                            <input placeholder="First Name" name="firstName" className="form-control" value={this.state.firstName} onChange={this.changeFirstNameHandler}/>
-                            </div>
-                            <br></br>                         
-                            <div className="input">
-                            <label>Last  Name :</label>
-                            <input placeholder="Last Name" name="lastName" className="form-control" value={this.state.lastName} onChange={this.changeLastNameHandler}/>
-                            </div>
-                            <br></br>
-                            <br></br>
-                            <div className="input">
-                            <label>Email :</label>
-                            <input placeholder="Email" name="Email" className="form-control" value={this.state.Email} onChange={this.changeEmailHandler}/>
-                            </div>
-                            <br></br>
-                            <br></br>
-                            <div className="input">
-                            <label>User Name :</label>
-                            <input type ="text" placeholder="User Name" name="userame" className="form-control" value={this.state.UserName} onChange={this.changeUserNameHandler}/>
-                            </div>
-                            <br></br>
-                            <br></br>
-                            <div className="input">
-                            <label>Password :  </label>
-                            <input type="password" placeholder="Password" name="password" className="form-control" value={this.state.Password} onChange={this.changePasswordHandler}/>
-                            </div>
-                            <br></br>
-                            <br></br>
-                             <button className="submit" onClick={this.saveUserinfo}>Submit</button>
-                             <button className="btn" onClick={this.cancel.bind} > Cancel</button>
-                      </form>
-             </div>    
+
+                <form className='register'>
+                    <div className="input">
+                        <label>First Name :</label>
+                        <input placeholder="First Name" name="firstName" className="form-control" value={this.state.firstName} onChange={this.changeFirstNameHandler}/>
+                    </div>
+                                                     
+                    <div className="input">
+                        <label>Last  Name :</label>
+                        <input placeholder="Last Name" name="lastName" className="form-control" value={this.state.lastName} onChange={this.changeLastNameHandler}/>
+                    </div>
+                            
+                    <div className="input">
+                        <label>Email :</label>
+                        <input placeholder="Email" name="Email" className="form-control" value={this.state.Email} onChange={this.changeEmailHandler}/>
+                    </div>
+                            
+                    <div className="input">
+                        <label>User Name :</label>
+                        <input type ="text" placeholder="User Name" name="userame" className="form-control" value={this.state.UserName} onChange={this.changeUserNameHandler}/>
+                    </div>
+                            
+                    <div className="input">
+                        <label>Password :  </label>
+                        <input type="password" placeholder="Password" name="password" className="form-control" value={this.state.Password} onChange={this.changePasswordHandler}/>
+                    </div>
+                            
+                    <button className="submit" onClick={this.saveUserinfo}>Submit</button>
+                    <button className="btn" onClick={this.cancel.bind} > Cancel</button>
+                </form>
+            </div>    
         </div>
      </article>
 

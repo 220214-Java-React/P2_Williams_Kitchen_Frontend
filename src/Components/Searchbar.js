@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios, { Requests } from 'axios';
 import Select from "react-select"
-
+import './Searchbar.css';
 
 
 // TODO: figure out what's going on with .env files 
@@ -13,13 +13,12 @@ const SearchBar = () => {
    const [multiSearchInput, setMultiSearchInput] = useState("");
    const [selectedOption, setSelectedOption] = useState(null);
    const [list, setlist] = useState([])
-   
+   const [favorite, setFavorite] = useState(false);
 
    const mealSugg = [
       { value: "chicken", label: "Chicken" },
       { value: "chicken_breast", label: "Chicken Breast" },
       { value: "beef", label: "Beef" },
-      { value: "steak", label: "Steak" },
       { value: "pork", label: "Pork" },
       { value: "pork_chops", label: "Pork Chops" },
       
@@ -31,11 +30,6 @@ const SearchBar = () => {
    ]
 
    const tableItems = []
-
-
-
-
-
       
    
    // function to send
@@ -75,6 +69,8 @@ const SearchBar = () => {
       
    }
 
+
+
    
    try {
       for (let i = 0; i < list.length; i++) {
@@ -83,6 +79,15 @@ const SearchBar = () => {
                <td>{list[i].idMeal}</td>
                <td>{list[i].strMeal}</td>
                <td><img src={list[i].strMealThumb} width="50px"></img></td>
+               <td><button 
+               type="button" 
+               class="button"
+               key={i}
+               className={i == favorite ? "on" : "off"} 
+               onClick={() => setFavorite(i)}
+               >
+                  <span className="star">&#9733;</span>
+                  </button></td>
             </tr>
          )
       }

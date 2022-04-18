@@ -11,9 +11,12 @@ const LandingPage=(props)=>{
     
     const [user, setUser] = useState({})
 
+    if(state !== null)
+    {
     if (state.id !== 0) {
         console.log("user logged in")
     }
+}
     
 
 

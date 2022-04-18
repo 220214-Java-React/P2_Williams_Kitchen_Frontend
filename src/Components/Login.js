@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, useContext } from 'react';
 import AuthContext from "../AuthProvider";
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import Header from './header';
 import UserHeader from './UserHeader';
 import Footer from './footer';
@@ -69,16 +69,9 @@ const Login = () => { // Login in function and form
 
             {success ? (
                 <section>
-                    {
-                        
-                        (response === null ?  setSuccess(false) : console.log(`the current user is ${response.username}`))  
-                    
-                    }
-
-                    <h1>You are logged in!</h1> // Indicator that you have successfully logged in
-                    <br />
+                    <h1>Welcome {response.username}</h1>
                     <p>
-                        <a><Link to="/" state={response}>Go to Home</Link></a>
+                        <a><Link to="/" state={response}>Look For Some Food</Link></a>
                     </p>
                 </section>
             ) : (

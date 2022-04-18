@@ -3,6 +3,7 @@ import AuthContext from "../AuthProvider";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Header from './header';
+import UserHeader from './UserHeader';
 import Footer from './footer';
 
 
@@ -34,7 +35,11 @@ const Login = () => { // Login in function and form
 
         //connect to the backend with axios and stringifys the inputs
         try {
-            setResponse( await axios.post(LOGIN_URL + "/"+ username, JSON.stringify({ username, password })).then(response => response.data))
+            let array = [password]
+
+            console.log(array[0])
+
+            setResponse( await axios.post(LOGIN_URL + "/"+ username, array).then(response => response.data))
 
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;

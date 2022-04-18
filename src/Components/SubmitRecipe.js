@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Footer from './footer'
 import Header from './header'
+import UserHeader from './UserHeader'
 
 
 export default function SubmitRecipe() {
@@ -26,7 +27,7 @@ export default function SubmitRecipe() {
 
     return (
         <>
-            <Header />
+            <UserHeader />
 
             <article id="submitRecipeFormDiv">
                 <form id="recipeForm">

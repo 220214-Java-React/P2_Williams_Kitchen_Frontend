@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import SearchBar from './Searchbar'
 import Footer from './footer'
 import Header from './header'
+import UserHeader from './UserHeader'
 
 const LandingPage=(props)=>{
 
@@ -11,18 +12,19 @@ const LandingPage=(props)=>{
     
     const [user, setUser] = useState({})
 
-    if (state == null) {
-
-    }
-    else if (state.id !== 0) {
-        console.log("user logged in")
+    if (state !== null) {
+        if (state.id !== 0) {
+            console.log("user logged in")
+        }
     }
     
+    
+
 
 
     return ( 
         <>
-        <Header/>
+        {state === null ? <Header/> : <UserHeader/>}
 
         <article>
             {console.log(state)}

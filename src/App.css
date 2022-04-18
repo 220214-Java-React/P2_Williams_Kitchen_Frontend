@@ -1,3 +1,42 @@
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border: 20px solid wheat;
+  border-radius:5px;
+}
+
+
+/* Table css rules */
+.tableContainer {
+  display: inline-block;
+  margin: 2.5%;
+  width: 45%;
+  height: 300px;
+  overflow: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .navregister{
   padding-top:30px;
   border-radius:1px;
@@ -88,11 +127,4 @@
 }
 .btnsubmit{ 
      
-}
-.footer{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  border: 20px solid wheat;
-  border-radius:5px;
 }

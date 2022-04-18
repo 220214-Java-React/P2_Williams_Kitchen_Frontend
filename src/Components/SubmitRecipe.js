@@ -81,13 +81,9 @@ export default function SubmitRecipe() {
                 "ingredientList":recipeIngredients,
                 "cuisine":recipeCulture
             }
-
-            console.log(recipe)
+ 
             axios.post("http://localhost:8080/recipe/create", recipe).then(response => console.log(response.JSON))
-        } catch (er) {
-
-        }
-
+        } catch (er) {}
     }
 
 

@@ -12,8 +12,8 @@ const SearchBar = () => {
    const [searchInput, setSearchInput] = useState("");
    const [multiSearchInput, setMultiSearchInput] = useState("");
    const [selectedOption, setSelectedOption] = useState(null);
-   const [list, setlist] = useState([])
-   
+   const [mealDBList, setMealDbList] = useState([])
+   const [customMealList, setCustomMealList] = useState([])
 
    const mealSugg = [
       { value: "chicken", label: "Chicken" },
@@ -31,7 +31,7 @@ const SearchBar = () => {
    ]
 
    const tableItems = []
-
+   const customTableItems = []
 
 
 
@@ -59,14 +59,13 @@ const SearchBar = () => {
       // imported function to make diff calls for different searches
       // add search to local storage just in case
       const mealDbUrl = "https://www.themealdb.com/api/json/v2/9973533/filter.php?i="
+      const localApiUrl = "http://localhost:8080/recipe" 
       console.log(mealDbUrl + searchString)
       
-      await fetch(mealDbUrl + searchString).then(resp => resp.json()).then(data => setlist(data.meals)).then(console.log(list))
+      await fetch(mealDbUrl + searchString).then(resp => resp.json()).then(data => setMealDbList(data.meals)).then(console.log(mealDBList))
       
-      
-      
+      await fetch(localApiUrl).then(resp => resp.json()).then(data => setCustomMealList(data)).then(console.log(customMealList))
 
-      console.log(tableItems)
       setSearchInput("");
    }
 
@@ -77,12 +76,12 @@ const SearchBar = () => {
 
    
    try {
-      for (let i = 0; i < list.length; i++) {
+      for (let i = 0; i < mealDBList.length; i++) {
          tableItems.push(
             <tr>
-               <td>{list[i].idMeal}</td>
-               <td>{list[i].strMeal}</td>
-               <td><img src={list[i].strMealThumb} width="50px"></img></td>
+               <td>{mealDBList[i].idMeal}</td>
+               <td>{mealDBList[i].strMeal}</td>
+               <td><img src={mealDBList[i].strMealThumb} width="50px"></img></td>
             </tr>
          )
       }
@@ -97,6 +96,29 @@ const SearchBar = () => {
       )
    }
 
+   try {
+      for (let i = 0; i < customMealList.length; i++) {
+         customTableItems.push(
+            <tr>
+               <td>{customMealList[i].recipeId}</td>
+               <td>{customMealList[i].recipeName}</td>
+               <td><img src="https://via.placeholder.com/50" width="50px"></img></td>
+            </tr>
+         )
+      }
+   }catch (e) {
+      console.log(e)
+      tableItems.push(
+         <tr>
+            <td>0</td>
+            <td>no meals to display</td>
+            <td><img src="https://via.placeholder.com/50" width="50px"></img></td>
+         </tr>
+      )
+   }
+
+
+
    return (
 
       <>
@@ -110,7 +132,7 @@ const SearchBar = () => {
                   <input type="submit" value="Submit" />
                </form>
 
-               <div className="resultTable">
+               <div id="mealDbTableContainer" className='tableContainer'>
                   <table>
                      <thead>
                         <tr>
@@ -124,10 +146,30 @@ const SearchBar = () => {
                      </tbody>
                   </table>
                </div>
+
+               <div id="customMealTableContainer" className='tableContainer'>
+                  <table>
+                     <thead>
+                        <tr>
+                           <th>meal Id</th>
+                           <th>meal Title</th>
+                           <th>meal Origin</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {customTableItems}
+                     </tbody>
+                  </table>
+               </div>
             </div>
+
          </article>
       </>
    )
 }
+
+
+
+
 
 export default SearchBar;

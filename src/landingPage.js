@@ -5,13 +5,11 @@ const LandingPage=()=>{
 
     return ( 
         <>
-        <header className="navhome">
-        
+        <header className="navhome">        
             <nav>
-                <a><Link to="/">Home</Link></a>
-                
+                <a><Link to="/">Home</Link></a>               
                 <a><Link to="/Submit">Submit Recipe</Link></a>
-                
+               
             </nav>
             
             <nav>

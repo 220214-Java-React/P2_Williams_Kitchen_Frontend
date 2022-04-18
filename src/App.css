@@ -87,9 +87,14 @@ margin-right: 10px;
   flex-direction:column;
   margin-top: 5px;
 }
-.btnsubmit{ 
-     
+
+:hover.btnsubmit{ 
+  cursor:pointer;
+  transition: ease;
+  color: rgb(55, 0, 255);
+  background-color: bisque; 
 }
+
 .footer{
 
   border: 20px solid wheat;

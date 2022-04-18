@@ -10,7 +10,7 @@ const LandingPage=(props)=>{
     const location = useLocation();
     const state = location.state
     
-    const [user, setUser] = useState({})
+   
 
     if (state !== null) {
         if (state.id !== 0) {
@@ -24,7 +24,7 @@ const LandingPage=(props)=>{
 
     return ( 
         <>
-        {state === null ? <Header/> : <UserHeader/>}
+        {state === null ? <Header/> : <UserHeader state={state}/>}
 
         <article>
             {console.log(state)}

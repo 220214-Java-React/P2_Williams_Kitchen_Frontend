@@ -15,7 +15,6 @@ const Login = () => { // Login in function and form
     const userRef = useRef(); //checks for users referencs 
     const errRef = useRef(); // sends error message based on errors
 
-    const [user, setUser] = useState({})
     const [username, setUsername] = useState(''); // user set in a userState to track State in the Function
     const [password, setPwd] = useState(''); // password of the user in a user state to track during the login
     const [errMsg, setErrMsg] = useState(''); // Custom error message based on log in error, FAILED, unaurthrized, server error.
@@ -46,7 +45,7 @@ const Login = () => { // Login in function and form
             setAuth({ username, password, roles, accessToken });
             setUsername('');
             setPwd('');
-            setSuccess(true);
+            setSuccess(true)
             
         } catch (err) {
             if (!err?.response) {
@@ -60,9 +59,7 @@ const Login = () => { // Login in function and form
             }
             errRef.current.focus();
         }
-        
     }
-
     
 
     return (
@@ -72,7 +69,12 @@ const Login = () => { // Login in function and form
 
             {success ? (
                 <section>
-                    {console.log(`the current user is ${response.username}`)}
+                    {
+                        
+                        (response === null ?  setSuccess(false) : console.log(`the current user is ${response.username}`))  
+                    
+                    }
+
                     <h1>You are logged in!</h1> // Indicator that you have successfully logged in
                     <br />
                     <p>

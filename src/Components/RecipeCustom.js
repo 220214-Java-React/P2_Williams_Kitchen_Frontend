@@ -34,7 +34,7 @@ export default function RecipeUser(props) {
     useEffect(() =>{
         if (recipe !== null) {
             if(isMealDb == true) {
-                fetch("http://localhost:8080/recipe" + recipe.strMeal).then(response => response.json()).then(data => setDetails(data.meals[0]))
+                fetch("http://localhost:8080/recipe" + recipe.recipe_id).then(response => response.json()).then(data => setDetails(data))
                 
             }
     }}, [])

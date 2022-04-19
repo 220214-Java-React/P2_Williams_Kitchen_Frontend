@@ -20,28 +20,32 @@ const SearchBar = () => {
    const [customMealList, setCustomMealList] = useState([])
 
    const mealSugg = [
+
+      //meats
       { value: "chicken", label: "Chicken" },
       { value: "chicken_breast", label: "Chicken Breast" },
       { value: "beef", label: "Beef" },
-      { value: "steak", label: "Steak" },
       { value: "pork", label: "Pork" },
       { value: "pork_chops", label: "Pork Chops" },
-      
+      //vegies
 
       { value: "broccoli", label: "broccoli" },
       { value: "squash", label: "squash" },
+      //fruits
+
+
+
+      //carbs
       { value: "rice", label: "rice" },
       { value: "seaweed", label: "seaweed" },
+
+
+      //expand in morning
    ]
 
    const tableItems = []
    const customTableItems = []
 
-
-
-
-      
-   
    // function to send
    async function handleSubmit (e) {
       e.preventDefault();
@@ -102,8 +106,8 @@ const SearchBar = () => {
       for (let i = 0; i < customMealList.length; i++) {
          customTableItems.push(
             <tr>
-               <td><Link to="/Recipe" state={[user, customMealList[i], false]}>{customMealList[i].recipeId}</Link></td>
-               <td><Link to="/Recipe" state={[user, customMealList[i], false]}>{customMealList[i].recipeName}</Link></td>
+               <td><Link to="/Recipe" state={[user, customMealList[i], false]}>{customMealList[i].recipe_id}</Link></td>
+               <td><Link to="/Recipe" state={[user, customMealList[i], false]}>{customMealList[i].recipe_title}</Link></td>
                <td><Link to="/Recipe" state={[user, customMealList[i], false]}><img src="https://via.placeholder.com/50" width="50px"></img></Link></td>
             </tr>
          )
@@ -135,6 +139,7 @@ const SearchBar = () => {
                </form>
 
                <div id="mealDbTableContainer" className='tableContainer'>
+                  <h2>Search Table</h2>
                   <table>
                      <thead>
                         <tr>
@@ -150,6 +155,7 @@ const SearchBar = () => {
                </div>
 
                <div id="customMealTableContainer" className='tableContainer'>
+                  <h2>User Recipes</h2>
                   <table>
                      <thead>
                         <tr>

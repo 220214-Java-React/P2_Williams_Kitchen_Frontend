@@ -12,7 +12,9 @@ export default function UserHeader() {
             
             <nav>
                 <a><Link to="/">Sign Out</Link></a>
+                <span>/</span>
                 <a><Link to ="/" state={state}>Home</Link></a>
+                <span>/</span>
                 <a><Link to="/Submit">Submit Recipe</Link></a>
             </nav>
 

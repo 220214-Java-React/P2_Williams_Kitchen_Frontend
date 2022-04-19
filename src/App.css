@@ -1,4 +1,3 @@
-
 html {
   height: 100%;
   box-sizing: border-box;
@@ -15,7 +14,6 @@ body {
   min-height: 100%;
 }
 
-
 .footer{
   position:absolute;
   bottom: 0;
@@ -24,13 +22,30 @@ body {
   border-radius:5px;
 }
 
-
-/* Table css rules */
-.tableContainer {
-  display: inline-block;
-  margin: 2.5%;
+article {
+  margin-top: 20px;
+}
+/* searchbar.js styles */
+#searchBar{
   width: 45%;
-  height: 300px;
+  margin: 5px auto;
+}
+
+.main {
+  text-align: center;
+}
+
+.flex-container{
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.tableContainer {
+  height: 400px;
+  padding: 25px 100px;
+  border: 1px solid white;
+  box-shadow: 1px 1px 1px 1px black;
+  
   overflow: auto;
 }
 

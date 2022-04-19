@@ -3,6 +3,7 @@ import Header from "./header";
 import Footer from "./footer";
 import UserHeader from "./UserHeader";
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function RecipeUser(props) {
     const location = useLocation()
@@ -12,7 +13,15 @@ export default function RecipeUser(props) {
     const recipe = state[1];
     const isMealDb = state[2]
 
+    const mealIngredientsList = []
+    const [recipeDetails, setDetails] = useState(null)
     console.log(state)
+
+
+    async function getMealData(id) {
+    //    await fetch("www.themealdb.com/api/json/v2/9973533/lookup.php?i=" + id).then(response => console.log(response.json.meal))
+        await fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + id).then(response => response.json()).then(data => setDetails(data.meals[0]))
+    }
 
     if (user == null) {
         console.log(null)
@@ -22,22 +31,53 @@ export default function RecipeUser(props) {
     }
 
     console.log(recipe)
+    useEffect(() =>{
+        if (recipe !== null) {
+            if(isMealDb == true) {
+                getMealData(recipe.strMeal, true)
+            }
+    }}, [])
 
-    if (recipe !== null) {
-        if(isMealDb == true) {
-            getMealData(recipe.idMeal, true)
-        }else {
-            
-        }
-    }
 
+
+    useEffect(() =>{
+        console.log(recipeDetails)    
+    }, [recipeDetails])
 
     
     return (
         <>
             {user == null ? <Header /> : <UserHeader/>}
 
-            {isMealDb == true ? <MealDb/> : <CustomMeal/>}
+            {isMealDb == true ? (
+            <article>
+                <div id="mealDetails">
+                    <img id="mealImg" src={recipeDetails.strMealThumb} width="300px"/>
+                    <h1 id="recipeName">{recipeDetails.strMeal}</h1>
+                    <p id="mealTimeStr">Prep Time: <span id="prepTime">{}</span> Cook Time: <span id="cookTime">{}</span></p>
+                    <p>This meal originates from: <span id="meal Culture">{recipeDetails.strArea}</span></p>
+                </div>
+
+                <div id="ingredientsList">
+                    <h3>Ingredients</h3>
+                    <ul>
+                        {mealIngredientsList}
+                    </ul>
+                </div>
+
+                <div id="stepsList">
+                    <h3>Instructions</h3>
+                    <p id="instructions">{recipeDetails.strInstructions}</p>
+                </div>
+            
+                <div id="bonusMaterial">
+                    <ReactPlayer url={recipeDetails.strYoutube} />
+                    <a href={recipeDetails.strSource} target="new">read more</a>
+                </div>
+
+
+            </article>
+        ) : <CustomMeal/>}
 
             <Footer />
         
@@ -45,44 +85,14 @@ export default function RecipeUser(props) {
     )
 }
 
-async function getMealData(id) {
-       await fetch("www.themealdb.com/api/json/v2/9973533/lookup.php?i=" + id).then(response => console.log(response))
-    
-}
+
 
 function MealDb(recipe) {
 
-    const mealIngredientsList = []
+   
 
 
-    return (
-        <article>
-            <div id="mealDetails">
-                <img id="mealImg" src="#"/>
-                <h1 id="recipeName"></h1>
-                <p id="mealTimeStr">Prep Time: <span id="prepTime">{}</span> Cook Time: <span id="cookTime">{}</span></p>
-                <p>This meal originates from: <span id="meal Culture">{}</span></p>
-            </div>
-
-            <div id="ingredientsList">
-                <h3>Ingredients</h3>
-                <ul>
-                    {mealIngredientsList}
-                </ul>
-            </div>
-
-            <div id="stepsList">
-                <h3>Instructions</h3>
-                <p id="instructions">{}</p>
-            </div>
-
-            <div id="bonusMaterial">
-                <ReactPlayer url="https://www.youtube.com/watch?v=zCp22DRXi8Y" />
-            </div>
-
-
-        </article>
-    )
+    return 
 }
 
 function CustomMeal(recipe) {

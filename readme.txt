@@ -36,3 +36,8 @@ Team
 -Chas Stevens     --Core Team Member
 -Boualem Chihaoui --Core Team Member
 -Nakisha Bryant   --Core Team Member
+
+  Link to Frontend
+https://github.com/220214-Java-React/P2_Williams_Kitchen_Frontend.git
+  Link to Backend
+https://github.com/220214-Java-React/P2_Williams_Kitchen_Backend.git

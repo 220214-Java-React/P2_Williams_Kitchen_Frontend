@@ -34,7 +34,7 @@ export default function RecipeUser(props) {
     useEffect(() =>{
         if (recipe !== null) {
             if(isMealDb == true) {
-                fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + recipe.strMeal).then(response => response.json()).then(data => setDetails(data.meals[0]))
+                fetch("http://localhost:8080/recipe" + recipe.strMeal).then(response => response.json()).then(data => setDetails(data.meals[0]))
                 
             }
     }}, [])
@@ -42,65 +42,17 @@ export default function RecipeUser(props) {
 
 
     useEffect(() =>{
-        console.log(recipeDetails)
-        
-        
-            
+        console.log(recipeDetails)   
     }, recipeDetails)
 
 
-    if (recipeDetails !== null && mealIngredientsList.length < 20) {
-        let measurements = [
-            recipeDetails.strMeasure1,
-            recipeDetails.strMeasure2,
-            recipeDetails.strMeasure3,
-            recipeDetails.strMeasure4,
-            recipeDetails.strMeasure5,
-            recipeDetails.strMeasure6,
-            recipeDetails.strMeasure7,
-            recipeDetails.strMeasure8,
-            recipeDetails.strMeasure9,
-            recipeDetails.strMeasure10,
-            recipeDetails.strMeasure11,
-            recipeDetails.strMeasure12,
-            recipeDetails.strMeasure13,
-            recipeDetails.strMeasure14,
-            recipeDetails.strMeasure15,
-            recipeDetails.strMeasure16,
-            recipeDetails.strMeasure17,
-            recipeDetails.strMeasure18,
-            recipeDetails.strMeasure19,
-            recipeDetails.strMeasure20
-        ]
-            let ingredients = [
-                recipeDetails.strIngredient1,
-                recipeDetails.strIngredient2,
-                recipeDetails.strIngredient3,
-                recipeDetails.strIngredient4,
-                recipeDetails.strIngredient5,
-                recipeDetails.strIngredient6,
-                recipeDetails.strIngredient7,
-                recipeDetails.strIngredient8,
-                recipeDetails.strIngredient9,
-                recipeDetails.strIngredient10,
-                recipeDetails.strIngredient11,
-                recipeDetails.strIngredient12,
-                recipeDetails.strIngredient13,
-                recipeDetails.strIngredient14,
-                recipeDetails.strIngredient15,
-                recipeDetails.strIngredient16,
-                recipeDetails.strIngredient17,
-                recipeDetails.strIngredient18,
-                recipeDetails.strIngredient19,
-                recipeDetails.strIngredient20
-            ]
-            
-            for (let i = 0; i < 20; i++) {
-                mealIngredientsList.push(
-                    <li>{measurements[i]} -- {ingredients[i]}</li>
-                )
-            }
-        }
+    // if (recipeDetails !== null && mealIngredientsList.length < 20) {    
+    //         for (let i = 0; i < 20; i++) {
+    //             mealIngredientsList.push(
+    //                 <li>{measurements[i]} -- {ingredients[i]}</li>
+    //         )
+    //     }
+    // }
 
 
     return (
@@ -114,27 +66,22 @@ export default function RecipeUser(props) {
                 
                 {recipeDetails != null ? 
                 <>
-                    <div id="mealDetails">        
-                        <img id="mealImg" src={recipeDetails.strMealThumb} width="300px"/>
-                        <h1 id="recipeName">{recipeDetails.strMeal}</h1>
-                        <p>This meal originates from: <span id="meal Culture">{recipeDetails.strArea}</span></p>
+                    <div id="mealDetails">
+                        <h1 id="recipeName">{}</h1>
+                        <p id="mealTimeStr">Prep Time: <span id="prepTime">{}</span> Cook Time: <span id="cookTime">{}</span></p>
+                        <p>This meal originates from: <span id="meal Culture">{}</span></p>
                     </div>
-        
+
                     <div id="ingredientsList">
                         <h3>Ingredients</h3>
                         <ul>
-                           {mealIngredientsList}
+                            {mealIngredientsList}
                         </ul>
                     </div>
-        
+
                     <div id="stepsList">
                         <h3>Instructions</h3>
-                        <p id="instructions">{recipeDetails.strInstructions}</p>
-                    </div>
-                    
-                    <div id="bonusMaterial">
-                        <ReactPlayer url={recipeDetails.strYoutube} />
-                        <a href={recipeDetails.strSource} target="new">read more</a>
+                        <p id="instructions">{}</p>
                     </div>
                 </>
                 
@@ -150,16 +97,16 @@ export default function RecipeUser(props) {
     )
 }
 
+function CustomMeal(recipe) {
+
+    const mealIngredientsList = []
+    return (
+        <article>
 
 
-function MealDb(recipe) {
-
-   
-
-
-    return 
+        </article>
+    )
 }
-
 
 
 

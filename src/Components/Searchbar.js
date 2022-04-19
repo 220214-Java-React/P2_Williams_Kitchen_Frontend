@@ -80,6 +80,62 @@ const SearchBar = () => {
 
    }
 
+
+
+   async function handleFavorite(e)
+   {
+      if (user !== null) {
+         if (e.target.className === "on") {
+            e.target.className = "off"
+         }
+         else {
+            e.target.className = "on"
+
+            const favorite = { 
+               "username": user.username,
+               "recipe_id": e.key,
+               "meal_url": "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + e.key
+
+            }
+            await fetch("http://localhost:8080/Favorites/", {method: "post", headers: {"Content-Type": "application/json"}} + favorite).then(resp => resp.json()).then(data => console.log(data))
+         }
+      }
+   }
+
+
+   try {
+      for (let i = 0; i < mealDBList.length; i++) {
+         tableItems.push(
+            <tr>
+               <td>{mealDBList[i].idMeal}</td>
+               <td>{mealDBList[i].strMeal}</td>
+               <td><img src={mealDBList[i].strMealThumb} width="50px"></img></td>
+               <td><a
+                  type="button"
+                  class="button"
+                  key={mealDBList[i].idMeal}
+                  onClick={(e) => handleFavorite(e)}
+                  
+               >
+                  <span className="star">&#9733;</span>
+               </a></td>
+            </tr>
+         )
+      }
+   } catch (e) {
+      console.log(e)
+      tableItems.push(
+         <tr>
+            <td>0</td>
+            <td>no meals to display</td>
+            <td><img src="https://via.placeholder.com/50" width="50px"></img></td>
+         </tr>
+      )
+   }
+
+
+
+
    try {
 
       for (let i = 0; i < favoriteRecipeList.length; i++) {

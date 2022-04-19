@@ -10,6 +10,7 @@ import LandingPage from './Components/LandingPage';
 import Login from './Components/Login';
 import Register from './Components/Register';
 import SubmitRecipe from './Components/SubmitRecipe';
+import RecipeUser from './Components/RecipeUser';
 
 
 ReactDOM.render(
@@ -21,7 +22,7 @@ ReactDOM.render(
         <Route path="Submit" element={<SubmitRecipe/>} />
         <Route path="Login" element={<Login/>} />
         <Route path="Register" element={<Register/>} />
-
+        <Route path="Recipe" element={<RecipeUser/>} />
       </Routes>
       </BrowserRouter>
     </AuthProvider>    

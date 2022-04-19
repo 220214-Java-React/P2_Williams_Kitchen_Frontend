@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios, { Requests } from 'axios';
 import Select from "react-select"
+import { Link, useLocation } from 'react-router-dom';
 
 
 
@@ -9,6 +10,9 @@ import Select from "react-select"
 
 const SearchBar = () => {
    
+   const location = useLocation();
+   const user = location.state
+
    const [searchInput, setSearchInput] = useState("");
    const [multiSearchInput, setMultiSearchInput] = useState("");
    const [selectedOption, setSelectedOption] = useState(null);
@@ -54,19 +58,17 @@ const SearchBar = () => {
       } else {
          searchString = searchInput
       }
-      
-      console.log("Form has been submitted, it's recipe time!!😋" +  searchString)
       // imported function to make diff calls for different searches
       // add search to local storage just in case
       const mealDbUrl = "https://www.themealdb.com/api/json/v2/9973533/filter.php?i="
-      const localApiUrl = "http://localhost:8080/recipe" 
-      console.log(mealDbUrl + searchString)
+      const localApiUrl = "http://localhost:8080/recipe"
       
       await fetch(mealDbUrl + searchString).then(resp => resp.json()).then(data => setMealDbList(data.meals)).then(console.log(mealDBList))
-      
       await fetch(localApiUrl).then(resp => resp.json()).then(data => setCustomMealList(data)).then(console.log(customMealList))
+      
 
       setSearchInput("");
+      console.log(user)
    }
 
    const handleInput = (e) => {
@@ -79,9 +81,9 @@ const SearchBar = () => {
       for (let i = 0; i < mealDBList.length; i++) {
          tableItems.push(
             <tr>
-               <td>{mealDBList[i].idMeal}</td>
-               <td>{mealDBList[i].strMeal}</td>
-               <td><img src={mealDBList[i].strMealThumb} width="50px"></img></td>
+               <td><Link to="/Recipe" state={[user, mealDBList[i], true]}>{mealDBList[i].idMeal}</Link></td>
+               <td><Link to="/Recipe" state={[user, mealDBList[i], true]}>{mealDBList[i].strMeal}</Link></td>
+               <td><Link to="/Recipe" state={[user, mealDBList[i], true]}><img src={mealDBList[i].strMealThumb} width="50px"></img></Link></td>
             </tr>
          )
       }
@@ -100,9 +102,9 @@ const SearchBar = () => {
       for (let i = 0; i < customMealList.length; i++) {
          customTableItems.push(
             <tr>
-               <td>{customMealList[i].recipeId}</td>
-               <td>{customMealList[i].recipeName}</td>
-               <td><img src="https://via.placeholder.com/50" width="50px"></img></td>
+               <td><Link to="/Recipe" state={[user, customMealList[i], false]}>{customMealList[i].recipeId}</Link></td>
+               <td><Link to="/Recipe" state={[user, customMealList[i], false]}>{customMealList[i].recipeName}</Link></td>
+               <td><Link to="/Recipe" state={[user, customMealList[i], false]}><img src="https://via.placeholder.com/50" width="50px"></img></Link></td>
             </tr>
          )
       }
@@ -167,6 +169,7 @@ const SearchBar = () => {
       </>
    )
 }
+
 
 
 

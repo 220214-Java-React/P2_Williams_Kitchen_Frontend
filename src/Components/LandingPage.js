@@ -10,25 +10,21 @@ const LandingPage=(props)=>{
     const location = useLocation();
     const state = location.state
     
-   
-
     if (state !== null) {
         if (state.id !== 0) {
             console.log("user logged in")
         }
+    }else {
+        console.log("no user")
     }
     
-    
-
-
-
     return ( 
         <>
         {state === null ? <Header/> : <UserHeader state={state}/>}
 
         <article>
             {console.log(state)}
-            <SearchBar/>
+            <SearchBar state={state}/>
         </article>
         
         <Footer/>

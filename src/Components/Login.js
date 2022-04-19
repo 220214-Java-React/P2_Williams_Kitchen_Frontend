@@ -34,15 +34,19 @@ const Login = () => { // Login in function and form
 
         //connect to the backend with axios and stringifys the inputs
         try {
-            setResponse( await axios.post(LOGIN_URL + "/"+ username, JSON.stringify({ username, password })).then(response => response.data))
+            let array = [password]
+
+            console.log(array[0])
+
+            setResponse( await axios.post(LOGIN_URL + "/"+ username, array).then(response => response.data))
 
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
             setAuth({ username, password, roles, accessToken });
             setUsername('');
             setPwd('');
-            setSuccess(true);
-            
+            setSuccess(true)
+
         } catch (err) {
             if (!err?.response) {
                 setErrMsg('No Server Response');
@@ -55,7 +59,6 @@ const Login = () => { // Login in function and form
             }
             errRef.current.focus();
         }
-        
     }
 
     

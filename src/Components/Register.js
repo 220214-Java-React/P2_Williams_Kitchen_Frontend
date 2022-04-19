@@ -32,8 +32,8 @@ saveUserinfo=(e)=>{ e.preventDefault();
         username: this.state.UserName,
         password:this.state.Password,
         email:this.state.Email,
-        firstname: this.state.firstName,
-        lastname: this.state.lastName
+        first_name: this.state.firstName,
+        last_name: this.state.lastName
     };
     
     console.log('user=>'+JSON.stringify(user));

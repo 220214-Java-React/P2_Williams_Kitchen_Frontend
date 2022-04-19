@@ -72,43 +72,40 @@ export default function RecipeUser(props) {
             recipeDetails.strMeasure19,
             recipeDetails.strMeasure20
         ]
-            let ingredients = [
-                recipeDetails.strIngredient1,
-                recipeDetails.strIngredient2,
-                recipeDetails.strIngredient3,
-                recipeDetails.strIngredient4,
-                recipeDetails.strIngredient5,
-                recipeDetails.strIngredient6,
-                recipeDetails.strIngredient7,
-                recipeDetails.strIngredient8,
-                recipeDetails.strIngredient9,
-                recipeDetails.strIngredient10,
-                recipeDetails.strIngredient11,
-                recipeDetails.strIngredient12,
-                recipeDetails.strIngredient13,
-                recipeDetails.strIngredient14,
-                recipeDetails.strIngredient15,
-                recipeDetails.strIngredient16,
-                recipeDetails.strIngredient17,
-                recipeDetails.strIngredient18,
-                recipeDetails.strIngredient19,
-                recipeDetails.strIngredient20
-            ]
+        let ingredients = [
+            recipeDetails.strIngredient1,
+            recipeDetails.strIngredient2,
+            recipeDetails.strIngredient3,
+            recipeDetails.strIngredient4,
+            recipeDetails.strIngredient5,
+            recipeDetails.strIngredient6,
+            recipeDetails.strIngredient7,
+            recipeDetails.strIngredient8,
+            recipeDetails.strIngredient9,
+            recipeDetails.strIngredient10,
+            recipeDetails.strIngredient11,
+            recipeDetails.strIngredient12,
+            recipeDetails.strIngredient13,
+            recipeDetails.strIngredient14,
+            recipeDetails.strIngredient15,
+            recipeDetails.strIngredient16,
+            recipeDetails.strIngredient17,
+            recipeDetails.strIngredient18,
+            recipeDetails.strIngredient19,
+            recipeDetails.strIngredient20
+        ]
             
-            for (let i = 0; i < 20; i++) {
-                mealIngredientsList.push(
-                    <li>{measurements[i]} -- {ingredients[i]}</li>
-                )
-            }
+        for (let i = 0; i < 20; i++) {
+            mealIngredientsList.push(
+                <li>{measurements[i]} -- {ingredients[i]}</li>
+            )
         }
+    }
 
 
     return (
         <>
             {user == null ? <Header /> : <UserHeader/>}
-
-            
-
             
             <article>
                 

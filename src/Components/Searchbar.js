@@ -18,6 +18,7 @@ const SearchBar = () => {
    const [selectedOption, setSelectedOption] = useState(null);
    const [mealDBList, setMealDbList] = useState([])
    const [customMealList, setCustomMealList] = useState([])
+   const [favoriteRecipeList, setFavoriteRecipeList] = useState([])
 
    const mealSugg = [
       { value: "chicken", label: "Chicken" },
@@ -36,6 +37,7 @@ const SearchBar = () => {
 
    const tableItems = []
    const customTableItems = []
+   const favoriteTable = []
 
 
 
@@ -65,7 +67,9 @@ const SearchBar = () => {
       
       await fetch(mealDbUrl + searchString).then(resp => resp.json()).then(data => setMealDbList(data.meals)).then(console.log(mealDBList))
       await fetch(localApiUrl).then(resp => resp.json()).then(data => setCustomMealList(data)).then(console.log(customMealList))
-      
+      await fetch(localApiUrl).then(resp => resp.json()).then(data => setFavoriteRecipeList(data)).then(console.log(favoriteRecipeList))
+
+
 
       setSearchInput("");
       console.log(user)
@@ -73,7 +77,30 @@ const SearchBar = () => {
 
    const handleInput = (e) => {
       setSearchInput(e.target.value);
-      
+
+   }
+
+   try {
+
+      for (let i = 0; i < favoriteRecipeList.length; i++) {
+         favoriteTable.push(
+            <tr>
+               <td><Link to="/Recipe" state={[user, mealDBList[i], true]}>{mealDBList[i].idMeal}</Link></td>
+               <td><Link to="/Recipe" state={[user, mealDBList[i], true]}>{mealDBList[i].strMeal}</Link></td>
+               <td><Link to="/Recipe" state={[user, mealDBList[i], true]}><img src={mealDBList[i].strMealThumb} width="50px"></img></Link></td>
+            </tr>
+         )
+      }
+   } catch (e) {
+      console.log(e)
+      tableItems.push(
+         <tr>
+            <td>0</td>
+            <td>no meals to display</td>
+            <td><img src="https://via.placeholder.com/50" width="50px"></img></td>
+         </tr>
+      )
+
    }
 
    
